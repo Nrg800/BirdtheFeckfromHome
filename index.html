@@ -1,0 +1,1086 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/ReportedMemberLocations_1.js"></script>
+        <script src="data/SightingLocations_2.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:16, minZoom:1
+        }).fitBounds([[-60.41485752972496,-179.93083827669102],[77.1301082809763,171.29015403034398]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+            map.setMaxBounds(map.getBounds());
+        }
+        var layer_Positronretina_0 = L.tileLayer('http://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png', {
+            opacity: 1.0,
+            attribution: '<a href="https://cartodb.com/basemaps/">Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</a>',
+            minZoom: 1,
+            maxZoom: 16,
+            minNativeZoom: 0,
+            maxNativeZoom: 20
+        });
+        layer_Positronretina_0;
+        map.addLayer(layer_Positronretina_0);
+        function pop_ReportedMemberLocations_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['City'] !== null ? Autolinker.link(feature.properties['City'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Members'] !== null ? Autolinker.link(feature.properties['Members'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ReportedMemberLocations_1_0(feature) {
+            if (feature.properties['Size'] >= 1.390389 && feature.properties['Size'] <= 1.511466 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 2.6,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 1.511466 && feature.properties['Size'] <= 1.632544 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 2.8551724137931034,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 1.632544 && feature.properties['Size'] <= 1.753621 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 3.110344827586207,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 1.753621 && feature.properties['Size'] <= 1.874698 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 3.3655172413793104,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 1.874698 && feature.properties['Size'] <= 1.995776 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 3.6206896551724137,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 1.995776 && feature.properties['Size'] <= 2.116853 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 3.8758620689655174,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 2.116853 && feature.properties['Size'] <= 2.237930 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 4.131034482758621,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 2.237930 && feature.properties['Size'] <= 2.359007 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 4.386206896551725,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 2.359007 && feature.properties['Size'] <= 2.480085 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 4.641379310344828,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 2.480085 && feature.properties['Size'] <= 2.601162 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 4.8965517241379315,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 2.601162 && feature.properties['Size'] <= 2.722239 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 5.151724137931035,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 2.722239 && feature.properties['Size'] <= 2.843317 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 5.406896551724138,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 2.843317 && feature.properties['Size'] <= 2.964394 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 5.662068965517242,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 2.964394 && feature.properties['Size'] <= 3.085471 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 5.9172413793103456,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 3.085471 && feature.properties['Size'] <= 3.206549 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 6.172413793103448,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 3.206549 && feature.properties['Size'] <= 3.327626 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 6.427586206896551,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 3.327626 && feature.properties['Size'] <= 3.448703 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 6.682758620689656,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 3.448703 && feature.properties['Size'] <= 3.569780 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 6.937931034482759,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 3.569780 && feature.properties['Size'] <= 3.690858 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 7.193103448275863,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 3.690858 && feature.properties['Size'] <= 3.811935 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 7.448275862068966,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 3.811935 && feature.properties['Size'] <= 3.933012 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 7.703448275862069,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 3.933012 && feature.properties['Size'] <= 4.054090 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 7.958620689655172,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 4.054090 && feature.properties['Size'] <= 4.175167 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 8.213793103448277,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 4.175167 && feature.properties['Size'] <= 4.296244 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 8.46896551724138,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 4.296244 && feature.properties['Size'] <= 4.417321 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 8.724137931034484,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 4.417321 && feature.properties['Size'] <= 4.538399 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 8.979310344827587,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 4.538399 && feature.properties['Size'] <= 4.659476 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 9.23448275862069,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 4.659476 && feature.properties['Size'] <= 4.780553 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 9.489655172413794,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 4.780553 && feature.properties['Size'] <= 4.901631 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 9.744827586206897,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 4.901631 && feature.properties['Size'] <= 5.022708 ) {
+                return {
+                pane: 'pane_ReportedMemberLocations_1',
+                radius: 10.0,
+                opacity: 1,
+                color: 'rgba(112,30,153,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,71,204,0.4)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_ReportedMemberLocations_1');
+        map.getPane('pane_ReportedMemberLocations_1').style.zIndex = 401;
+        map.getPane('pane_ReportedMemberLocations_1').style['mix-blend-mode'] = 'normal';
+        var layer_ReportedMemberLocations_1 = new L.geoJson(json_ReportedMemberLocations_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ReportedMemberLocations_1',
+            layerName: 'layer_ReportedMemberLocations_1',
+            pane: 'pane_ReportedMemberLocations_1',
+            onEachFeature: pop_ReportedMemberLocations_1,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_ReportedMemberLocations_1_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_ReportedMemberLocations_1);
+        map.addLayer(layer_ReportedMemberLocations_1);
+        function pop_SightingLocations_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Location'] !== null ? Autolinker.link(feature.properties['Location'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Count'] !== null ? Autolinker.link(feature.properties['Count'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_SightingLocations_2_0(feature) {
+            if (feature.properties['Size'] >= 2.000000 && feature.properties['Size'] <= 2.190480 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 2.190480 && feature.properties['Size'] <= 2.380961 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 4.413793103448276,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 2.380961 && feature.properties['Size'] <= 2.571441 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 4.827586206896552,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 2.571441 && feature.properties['Size'] <= 2.761921 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 5.241379310344827,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 2.761921 && feature.properties['Size'] <= 2.952402 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 5.655172413793103,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 2.952402 && feature.properties['Size'] <= 3.142882 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 6.068965517241379,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 3.142882 && feature.properties['Size'] <= 3.333362 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 6.482758620689655,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 3.333362 && feature.properties['Size'] <= 3.523843 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 6.896551724137931,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 3.523843 && feature.properties['Size'] <= 3.714323 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 7.310344827586206,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 3.714323 && feature.properties['Size'] <= 3.904804 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 7.724137931034482,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 3.904804 && feature.properties['Size'] <= 4.095284 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 8.137931034482758,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 4.095284 && feature.properties['Size'] <= 4.285764 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 8.551724137931036,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 4.285764 && feature.properties['Size'] <= 4.476245 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 8.96551724137931,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 4.476245 && feature.properties['Size'] <= 4.666725 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 9.379310344827587,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 4.666725 && feature.properties['Size'] <= 4.857205 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 9.793103448275861,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 4.857205 && feature.properties['Size'] <= 5.047686 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 10.206896551724139,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 5.047686 && feature.properties['Size'] <= 5.238166 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 10.620689655172413,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 5.238166 && feature.properties['Size'] <= 5.428646 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 11.03448275862069,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 5.428646 && feature.properties['Size'] <= 5.619127 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 11.448275862068964,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 5.619127 && feature.properties['Size'] <= 5.809607 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 11.862068965517242,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 5.809607 && feature.properties['Size'] <= 6.000087 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 12.275862068965518,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 6.000087 && feature.properties['Size'] <= 6.190568 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 12.689655172413794,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 6.190568 && feature.properties['Size'] <= 6.381048 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 13.10344827586207,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 6.381048 && feature.properties['Size'] <= 6.571528 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 13.517241379310345,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 6.571528 && feature.properties['Size'] <= 6.762009 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 13.931034482758621,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 6.762009 && feature.properties['Size'] <= 6.952489 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 14.344827586206897,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 6.952489 && feature.properties['Size'] <= 7.142970 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 14.758620689655173,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 7.142970 && feature.properties['Size'] <= 7.333450 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 15.172413793103448,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 7.333450 && feature.properties['Size'] <= 7.523930 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 15.586206896551724,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Size'] >= 7.523930 && feature.properties['Size'] <= 7.714411 ) {
+                return {
+                pane: 'pane_SightingLocations_2',
+                radius: 16.0,
+                opacity: 1,
+                color: 'rgba(255,68,51,0.8509803921568627)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,89,0.4)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_SightingLocations_2');
+        map.getPane('pane_SightingLocations_2').style.zIndex = 402;
+        map.getPane('pane_SightingLocations_2').style['mix-blend-mode'] = 'normal';
+        var layer_SightingLocations_2 = new L.geoJson(json_SightingLocations_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_SightingLocations_2',
+            layerName: 'layer_SightingLocations_2',
+            pane: 'pane_SightingLocations_2',
+            onEachFeature: pop_SightingLocations_2,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_SightingLocations_2_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_SightingLocations_2);
+        map.addLayer(layer_SightingLocations_2);
+        setBounds();
+        </script>
+    </body>
+</html>
